@@ -61,7 +61,7 @@ App 会自动：
 
 ## App 升级
 
-收到新版本通知后，运行：
+如需升级到新版本，运行：
 
 ```bash
 brew upgrade --cask bjw-cafeteria-reminder
