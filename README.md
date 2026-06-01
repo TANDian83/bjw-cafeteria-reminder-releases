@@ -1,65 +1,67 @@
-# BJW Cafeteria Reminder
+# BJW 餐厅提醒
 
-A macOS menu-bar app that reminds you about weekly tea-break (茶歇) and daily fresh-fruit (鲜果) events at BJW Beijing West Campus.
+macOS 菜单栏 App，自动提醒每周茶歇和每日鲜果。
 
-Data is updated automatically — you don't need to do anything after installation.
+安装后无需任何操作，数据每周自动更新。
 
 ---
 
-## Quick Start
+## 安装
 
-### 1. Install
-
-Open Terminal and run:
+打开 Terminal，依次运行：
 
 ```bash
 brew tap TANDian83/bjw-cafeteria
 brew install --cask bjw-cafeteria-reminder
 ```
 
-First launch only — clear macOS Gatekeeper quarantine:
+首次安装需要清除 macOS 安全限制（只需执行一次）：
 
 ```bash
 xattr -cr /Applications/BjwCafeteriaReminder.app
 ```
 
-Then open the app:
+打开 App：
 
 ```bash
 open /Applications/BjwCafeteriaReminder.app
 ```
 
-### 2. Use
+---
 
-Once launched, a menu-bar icon appears (no Dock icon).
+## 使用
 
-| Feature | How |
-|---------|-----|
-| View this week's menu | Click menu-bar icon → 「查看本周列表」 |
-| Manually check for data update | Click menu-bar icon → 「检查更新」 |
-| Adjust reminder timing | Click menu-bar icon → 「设置…」 → 「全局提前/延后」 |
-| Launch at login | Click menu-bar icon → 「设置…」 → 「登录时自动启动」 |
+启动后菜单栏会出现一个图标（不会出现在 Dock 栏）。
 
-The app will:
-- **Pop up a reminder** before each tea-break / fruit event (default: 5 minutes early).
-- **Catch up missed reminders** after sleep/wake (within a configurable window).
-- Allow you to **disable individual items** from the event list.
+| 功能 | 操作 |
+|------|------|
+| 查看本周菜单 | 点击菜单栏图标 →「查看本周列表」 |
+| 手动检查数据更新 | 点击菜单栏图标 →「检查更新」 |
+| 调整提醒时间偏移 | 点击菜单栏图标 →「设置…」→「全局提前/延后」 |
+| 开机自动启动 | 点击菜单栏图标 →「设置…」→「登录时自动启动」 |
 
-### 3. Data Updates (Automatic)
-
-Schedule data is hosted at a [shared GitHub repo](https://github.com/TANDian83/bjw-cafeteria-data). The app:
-
-- Fetches the latest schedule on every launch.
-- Automatically checks for updates daily at **11:30 AM (Beijing time)**.
-- Falls back to cached data silently if the network is unavailable.
-
-You don't need to do anything — data is published automatically each week.
+App 会自动：
+- 在每次茶歇/鲜果活动前 **弹窗提醒**（默认提前 5 分钟）
+- 睡眠/锁屏后唤醒时 **补发错过的提醒**
+- 支持按单个菜品 **关闭提醒**（在列表中操作）
 
 ---
 
-## App Updates
+## 数据更新（自动）
 
-When a new version is released, run:
+数据托管在 [GitHub](https://github.com/TANDian83/bjw-cafeteria-data)，App 会自动获取：
+
+- 每次启动时拉取最新数据
+- 每天北京时间 **11:30** 自动检查更新
+- 网络不可用时静默使用缓存数据
+
+无需手动操作，每周数据会自动发布。
+
+---
+
+## App 升级
+
+收到新版本通知后，运行：
 
 ```bash
 brew upgrade --cask bjw-cafeteria-reminder
@@ -68,13 +70,13 @@ xattr -cr /Applications/BjwCafeteriaReminder.app
 
 ---
 
-## Uninstall
+## 卸载
 
 ```bash
 brew uninstall --cask bjw-cafeteria-reminder
 ```
 
-To also remove cached data:
+同时清除本地缓存数据：
 
 ```bash
 rm -rf ~/.bjw-cafeteria
@@ -82,16 +84,20 @@ rm -rf ~/.bjw-cafeteria
 
 ---
 
-## FAQ
+## 常见问题
 
-**Q: The app won't open — macOS says it's from an unidentified developer.**
+**Q：打不开 App，macOS 提示"无法验证开发者"**
 
-A: Run `xattr -cr /Applications/BjwCafeteriaReminder.app` and try again. This only needs to be done once after each install/upgrade.
+运行以下命令后重试（每次安装/升级后只需执行一次）：
 
-**Q: I don't see any schedule data.**
+```bash
+xattr -cr /Applications/BjwCafeteriaReminder.app
+```
 
-A: Click 「检查更新」 in the menu bar. If data is still missing, the weekly email may not have been processed yet — it usually updates by Monday around 11:00 AM.
+**Q：没有显示任何数据**
 
-**Q: How do I change the reminder offset?**
+点击菜单栏图标 →「检查更新」。如果仍然没有数据，说明本周邮件尚未处理，通常周一上午 11:00 左右会自动更新。
 
-A: Click menu-bar icon → 「设置…」→ adjust 「全局提前/延后」 (in minutes, default: -5 = 5 minutes early).
+**Q：怎么调整提醒提前/延后的时间？**
+
+点击菜单栏图标 →「设置…」→ 调整「全局提前/延后」（单位：分钟，默认 -5 = 提前 5 分钟）。
