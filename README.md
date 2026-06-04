@@ -21,6 +21,8 @@ brew install --cask bjw-cafeteria-reminder
 xattr -cr /Applications/BjwCafeteriaReminder.app
 ```
 
+> `brew update` 会刷新版本索引，不可省略，否则可能提示"已是最新版本"。
+
 打开 App：
 
 ```bash
@@ -61,12 +63,15 @@ App 会自动：
 
 ## App 升级
 
-如需升级到新版本，运行：
+如需升级到新版本，依次运行：
 
 ```bash
+brew update
 brew upgrade --cask bjw-cafeteria-reminder
 xattr -cr /Applications/BjwCafeteriaReminder.app
 ```
+
+> `brew update` 会刷新版本索引，不可省略，否则可能提示"已是最新版本"。
 
 ---
 
@@ -93,6 +98,8 @@ rm -rf ~/.bjw-cafeteria
 ```bash
 xattr -cr /Applications/BjwCafeteriaReminder.app
 ```
+
+> `brew update` 会刷新版本索引，不可省略，否则可能提示"已是最新版本"。
 
 **Q：没有显示任何数据**
 
